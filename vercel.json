@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/(en|ur|roman-urdu)", "destination": "/index.html" },
+    { "source": "/(en|ur|roman-urdu)/(.*)", "destination": "/index.html" }
+  ]
+}

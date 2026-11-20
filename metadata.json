@@ -1,0 +1,6 @@
+{
+  "name": "Noor-e-Zindagi",
+  "description": "Your daily Deen companion, in one calm Android app. Quran with word-by-word meanings, verified Hadith, Azkar, Salah times, Sunnah habits, and a source-grounded AI assistant in English, Urdu, and Roman Urdu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

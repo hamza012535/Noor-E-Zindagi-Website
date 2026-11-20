@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor-e-Zindagi — Your Daily Deen Companion</title>
+    <meta
+      name="description"
+      content="Calm, offline-capable Islamic Android companion: Quran with word-by-word meanings, verified Hadith, Salah times, Azkar, Sunnah habits & AI guide in EN, Urdu & Roman Urdu."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Noor-e-Zindagi" />
+    <meta property="og:title" content="Noor-e-Zindagi — Your Daily Deen Companion" />
+    <meta
+      property="og:description"
+      content="Quran with word-by-word meanings, verified Hadith, Salah times, Azkar, and Sunnah habits in one calm, offline-capable Android app."
+    />
+    <meta property="og:url" content="/en" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Noor-e-Zindagi — Your Daily Deen Companion" />
+    <meta
+      name="twitter:description"
+      content="Quran, verified Hadith, Salah times, Azkar, Sunnah habits & source-grounded AI assistant in English, Urdu & Roman Urdu."
+    />
+    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="theme-color" content="#0D3B2E" />
+    <link rel="canonical" href="/en" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="alternate" hreflang="en" href="/en" />
+    <link rel="alternate" hreflang="ur" href="/ur" />
+    <link rel="alternate" hreflang="ur-Latn" href="/roman-urdu" />
+    <link rel="alternate" hreflang="x-default" href="/en" />
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem('nez_theme');
+          var prefersDark =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+
+          var path = window.location.pathname.toLowerCase();
+          var savedLang = localStorage.getItem('nez_lang');
+          var lang = 'en';
+          if (path.indexOf('/ur') === 0) lang = 'ur';
+          else if (path.indexOf('/roman-urdu') === 0) lang = 'roman-urdu';
+          else if (path.indexOf('/en') === 0) lang = 'en';
+          else if (savedLang === 'ur' || savedLang === 'roman-urdu' || savedLang === 'en') {
+            lang = savedLang;
+          } else if (navigator.language && navigator.language.toLowerCase().indexOf('ur') === 0) {
+            lang = 'ur';
+          }
+          document.documentElement.lang = lang === 'roman-urdu' ? 'ur-Latn' : lang;
+          document.documentElement.dir = lang === 'ur' ? 'rtl' : 'ltr';
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "Noor-e-Zindagi",
+            "operatingSystem": "Android 8.0+",
+            "applicationCategory": "LifestyleApplication",
+            "inLanguage": ["en", "ur", "ur-Latn"],
+            "description": "Calm, offline-capable Islamic daily companion Android app with Quran reader, verified Hadith library, Azkar, Salah times, Hijri calendar, Sunnah habits, and source-grounded AI assistant.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "Organization",
+            "name": "Noor-e-Zindagi",
+            "url": "/",
+            "logo": "/favicon.svg"
+          },
+          {
+            "@type": "WebSite",
+            "name": "Noor-e-Zindagi",
+            "url": "/",
+            "inLanguage": ["en", "ur", "ur-Latn"]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Noor-e-Zindagi free and ad-free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, Noor-e-Zindagi is free to download and use, with a strict privacy commitment and zero advertising trackers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does the app work offline?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. You can download all 114 Surahs as text or text + MP3 audio packs for 100% offline reading and listening, alongside offline Azkar, Sunnah checklists, and Hadith."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is the Islamic AI assistant a fatwa service?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Noor-e-Zindagi is not a fatwa service and is not affiliated with any religious authority. The AI assistant provides educational guidance grounded strictly in the app's verified Quran and Hadith corpus and always directs users to qualified scholars for formal rulings."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What Android version and permissions are required?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Minimum Android 8.0 (Oreo, API 26) with under 200 MB baseline RAM. It requests optional coarse location for prayer times, notifications for Adhan/reminders, and storage for offline Quran packs. No microphone or contacts access is requested."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Self-hosted WOFF2 typography (no external Google Fonts CDN calls) */
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+
+@import "@fontsource/amiri/400.css";
+@import "@fontsource/amiri/700.css";
+
+@import "@fontsource/noto-naskh-arabic/400.css";
+@import "@fontsource/noto-naskh-arabic/700.css";
+
+@import "@fontsource/noto-nastaliq-urdu/400.css";
+@import "@fontsource/noto-nastaliq-urdu/700.css";
+
+:root {
+  --bg-primary: #FAF6EE;
+  --bg-surface: #FFFFFF;
+  --brand-primary: #0D3B2E;
+  --brand-deepest: #07241C;
+  --accent-sage: #DCE7E1;
+  --accent-mint: #EAF2EE;
+  --gold-main: #C99A3B;
+  --gold-light: #F3E4BE;
+  --gold-deep: #8C6516;
+  --border-sand: #E2D8C7;
+  --text-primary: #17221E;
+  --text-muted: #4A5A52;
+  --shadow-sm: 0 1px 2px rgba(7, 36, 28, 0.06);
+  --shadow-md: 0 4px 16px rgba(7, 36, 28, 0.08);
+  --shadow-lg: 0 12px 40px rgba(7, 36, 28, 0.10);
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark {
+  --bg-primary: #091511;
+  --bg-surface: #11231C;
+  --brand-primary: #145341;
+  --brand-deepest: #07241C;
+  --accent-sage: #1A2E27;
+  --accent-mint: #152721;
+  --gold-main: #C99A3B;
+  --gold-light: #F3E4BE;
+  --gold-deep: #8C6516;
+  --border-sand: #223A30;
+  --text-primary: #F5EFE4;
+  --text-muted: #B7C4BD;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html[lang="ur"] body {
+    font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Plus Jakarta Sans", sans-serif;
+    line-height: 1.65;
+  }
+
+  html[lang="ur"] p,
+  html[lang="ur"] li {
+    line-height: 2.0;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+    line-height: 1.15;
+  }
+
+  html[lang="ur"] h1,
+  html[lang="ur"] h2,
+  html[lang="ur"] h3 {
+    font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Playfair Display", serif;
+    line-height: 1.75;
+  }
+
+  /* Visible burnished gold focus ring for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #C99A3B;
+    outline-offset: 2px;
+  }
+}
+
+.font-arabic {
+  font-family: "Amiri", "Noto Naskh Arabic", serif;
+  line-height: 2.0;
+}
+
+.font-urdu {
+  font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
+  line-height: 2.1;
+}
+
+.font-brand {
+  font-family: "Playfair Display", Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes trust-marquee-rtl-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+}
+
+.marquee-fade-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 5%,
+    #000 95%,
+    transparent
+  );
+}
+
+.trust-marquee-track {
+  animation: trust-marquee-rtl-scroll 26s linear infinite;
+  will-change: transform;
+}
+
+.trust-marquee-track:hover,
+.trust-marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+.surface-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.surface-shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.surface-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Android 9:19.5 frame sheen */
+.android-bezel-sheen {
+  background: linear-gradient(145deg, #0D3B2E 0%, #07241C 52%, #145341 100%);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(201, 154, 59, 0.42),
+    0 20px 44px rgba(7, 36, 28, 0.24);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
